@@ -195,7 +195,7 @@ function Game() {
           </div>
         )}
         <div className="sky"></div>
-        <div className="bird swing1"></div>
+        <div className="bird swing3"></div>
         <div className="ground"></div>
       </div>
       <div className="tip">
