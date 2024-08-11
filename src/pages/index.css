@@ -1,0 +1,121 @@
+.game {
+  width: 800px;
+  height: 600px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.game .gameover {
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game .gameover .gameover-text {
+  width: 400px;
+  height: 100px;
+  background: url('../images/over.png');
+  background-repeat: np-repeat;
+  background-size: 824px 412px; /* 将图片宽度放大 */
+  background-position: left -244px;
+}
+
+.game .sky {
+  background: url('../images/bg.png');
+  background-size: contain;
+  background-position: left;
+  background-repeat: repeat;
+  background-color: rgba(44, 154, 27, 1);
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.game .ground {
+  z-index: 2;
+  background: url('../images/ground.png');
+  background-size: contain;
+  background-position: left;
+  background-repeat: repeat;
+  background-color: rgba(44, 154, 27, 1);
+  width: 200%;
+  height: 120px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.game .bird {
+  background: url('../images/bird.png');
+  background-size: cover;
+  background-repeat: repeat;
+  position: absolute;
+  left: 160px;
+  top: 120px;
+  width: 56px;
+  height: 26px;
+}
+
+.game .bird.swing1 {
+  background-position: left 0;
+}
+
+.game .bird.swing2 {
+  background-position: left -26px;
+}
+
+.game .bird.swing3 {
+  background-position: left -52px;
+}
+
+.game .pipe {
+  z-index: 1;
+
+  background: url('../images/holdback.png');
+  background-size: 296px 820px; /* 图片原始尺寸 */
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-size: 200% 100%; /* 将图片宽度放大两倍，只展示左半部分 */
+  position: absolute;
+  width: 50px;
+}
+
+.game .pipe.up {
+  background-position: right bottom;
+  left: -100px;
+  height: 200px;
+}
+
+.game .pipe.down {
+  background-position: left top;
+  left: -100px;
+  height: 140px;
+}
+
+.tip {
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.tip .clickable {
+  cursor: pointer;
+  color: #1890ff;
+  margin: 0 12px;
+}
+
+.tip .clickable:hover {
+  color: #1890ffaa;
+}
