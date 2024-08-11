@@ -67,7 +67,10 @@ const uploadAndExtract = (
                 return handleRetry(retryCount, err);
               }
 
-              const execute = `unzip -o ${remoteZipPath} -d ${remoteDirPath}`;
+              const execute = `
+                unzip -o ${remoteZipPath} -d ${remoteDirPath} &&
+                chmod -R 755 ${remoteDirPath} 
+              `;
               console.log(`上传完成，开始执行解压任务命令: ${execute}  ...`);
               conn.exec(execute, (err, stream) => {
                 if (err) {
