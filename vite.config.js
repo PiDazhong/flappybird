@@ -22,13 +22,5 @@ export default defineConfig(({ command }) => {
     build: {
       outDir: 'flappybird',
     },
-    define: {
-      'process.env.NODE_ENV': JSON.stringify(
-        isDevelopment ? 'development' : 'production',
-      ),
-      'process.env.PUBLIC_PATH': JSON.stringify(
-        isDevelopment ? '/public/' : '/',
-      ),
-    },
   };
 });

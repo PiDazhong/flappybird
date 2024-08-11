@@ -24,14 +24,14 @@
 .game .gameover .gameover-text {
   width: 400px;
   height: 100px;
-  background: url('../images/over.png');
+  background: url('../over.png');
   background-repeat: np-repeat;
   background-size: 824px 412px; /* 将图片宽度放大 */
   background-position: left -244px;
 }
 
 .game .sky {
-  background: url('../images/bg.png');
+  background: url('../bg.png');
   background-size: contain;
   background-position: left;
   background-repeat: repeat;
@@ -45,7 +45,7 @@
 
 .game .ground {
   z-index: 2;
-  background: url('../images/ground.png');
+  background: url('../ground.png');
   background-size: contain;
   background-position: left;
   background-repeat: repeat;
@@ -58,7 +58,7 @@
 }
 
 .game .bird {
-  background: url('../images/bird.png');
+  background: url('../bird.png');
   background-size: cover;
   background-repeat: repeat;
   position: absolute;
@@ -83,7 +83,7 @@
 .game .pipe {
   z-index: 1;
 
-  background: url('../images/holdback.png');
+  background: url('../holdback.png');
   background-size: 296px 820px; /* 图片原始尺寸 */
   background-origin: content-box;
   background-repeat: no-repeat;

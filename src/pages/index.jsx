@@ -145,7 +145,6 @@ function Game() {
       intervalRef.current = null;
     };
   }, []);
-  console.log('isJumpingRef.current', isJumpingRef.current);
 
   // 添加空格键事件监听，按空格触发小鸟的jump
   useEffect(() => {
