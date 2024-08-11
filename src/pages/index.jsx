@@ -204,15 +204,15 @@ function Game() {
         <span className="clickable" onClick={() => startGame()}>
           开始游戏
         </span>
-        ；按 P
+        按 P
         <span className="clickable" onClick={() => pauseGame()}>
           暂停游戏
         </span>
-        ；按 R
+        按 R
         <span className="clickable" onClick={() => resetGame()}>
           重启游戏
         </span>
-        ；按 空格
+        按 空格
         <span className="clickable" onClick={() => birdJump()}>
           触发小鸟的跳跃
         </span>
