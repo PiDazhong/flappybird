@@ -19,7 +19,7 @@ class Bird extends Rectangle {
     const groundHeight = document.querySelector('.ground').clientHeight;
     this.maxY = gameHight - groundHeight - birdHeight;
     // 小鸟翅膀状态
-    this.swing = 1;
+    this.swing = 3;
     this.timer = null;
   }
 
