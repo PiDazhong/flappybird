@@ -8,6 +8,13 @@
   overflow: hidden;
 }
 
+/* 如果屏幕宽度小于800px，则宽度改为100% */
+@media (max-width: 800px) {
+  .game {
+    width: 100%; /* 适应屏幕宽度 */
+  }
+}
+
 .game .gameover {
   background-color: rgba(0, 0, 0, 0.25);
   width: 100%;
