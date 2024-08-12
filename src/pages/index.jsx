@@ -17,6 +17,7 @@ function Game() {
   const pairPipeProducerRef = useRef(null);
 
   const [gameover, setGameover] = useState(false);
+  const [gamepause, setGamepause] = useState(true);
 
   const startGame = () => {
     if (gameover) {
@@ -25,6 +26,7 @@ function Game() {
     if (intervalRef.current) {
       return;
     }
+    setGamepause(false);
     intervalRef.current = setInterval(() => {
       if (skyRef.current) {
         skyRef.current.move(8 / 1000);
@@ -64,6 +66,7 @@ function Game() {
     if (gameover) {
       return;
     }
+    setGamepause(true);
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
@@ -92,11 +95,13 @@ function Game() {
     // 重新挂载dom
     setDoms();
     setGameover(false);
+    setGamepause(false);
   };
 
   const endGame = () => {
     pauseGame();
     setGameover(true);
+    setGamepause(false);
   };
 
   // 挂载dom
@@ -192,6 +197,11 @@ function Game() {
         {gameover && (
           <div className="gameover">
             <div className="gameover-text"></div>
+          </div>
+        )}
+        {gamepause && (
+          <div className="gamepause">
+            <div className="gamepause-text" onClick={() => startGame()}></div>
           </div>
         )}
         <div className="sky"></div>

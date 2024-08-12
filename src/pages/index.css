@@ -30,6 +30,29 @@
   background-position: left -244px;
 }
 
+.game .gamepause {
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game .gamepause .gamepause-text {
+  width: 240px;
+  height: 120px;
+  background: url('../over.png');
+  background-repeat: np-repeat;
+  background-size: 824px 412px; /* 将图片宽度放大 */
+  background-position: 340px 0;
+  cursor: pointer;
+}
+
 /* 如果屏幕宽度小于800px，则宽度改为100% */
 @media (max-width: 800px) {
   .game {
@@ -41,6 +64,15 @@
     height: 50px;
     background-size: 412px 206px; /* 将图片宽度放大 */
     background-position: left -126px;
+  }
+
+  .game .gamepause .gamepause-text {
+    width: 120px;
+    height: 60px;
+    background: url('../over.png');
+    background-repeat: np-repeat;
+    background-size: 412px 206px; /* 将图片宽度放大 */
+    background-position: 170px 0;
   }
 }
 
