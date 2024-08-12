@@ -1,4 +1,10 @@
-import { useLayoutEffect, useEffect, useState, useRef } from 'react';
+import {
+  useLayoutEffect,
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+} from 'react';
 import './index.css';
 import Sky from './components/Sky';
 import Ground from './components/Ground';
@@ -95,7 +101,7 @@ function Game() {
     // 重新挂载dom
     setDoms();
     setGameover(false);
-    setGamepause(false);
+    setGamepause(true);
   };
 
   const endGame = () => {
@@ -151,9 +157,8 @@ function Game() {
     };
   }, []);
 
-  // 添加空格键事件监听，按空格触发小鸟的jump
-  useEffect(() => {
-    const handleKeyDown = (event) => {
+  const handleKeyDown = useCallback(
+    (event) => {
       if (event.code === 'Space' && birdRef.current && !isJumpingRef.current) {
         isJumpingRef.current = true;
         // 开始持续调用 jump 方法
@@ -170,17 +175,21 @@ function Game() {
       if (event.code === 'KeyR') {
         resetGame(); // 按下 R 键重启游戏
       }
-    };
+    },
+    [gameover, gamepause],
+  );
 
-    const handleKeyUp = (event) => {
-      if (event.code === 'Space') {
-        isJumpingRef.current = false;
-        // 停止 jump 方法的持续调用
-        clearInterval(jumpIntervalRef.current);
-        jumpIntervalRef.current = null;
-      }
-    };
+  const handleKeyUp = (event) => {
+    if (event.code === 'Space') {
+      isJumpingRef.current = false;
+      // 停止 jump 方法的持续调用
+      clearInterval(jumpIntervalRef.current);
+      jumpIntervalRef.current = null;
+    }
+  };
 
+  // 添加空格键事件监听，按空格触发小鸟的jump
+  useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
 
@@ -189,7 +198,7 @@ function Game() {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, []);
+  }, [handleKeyDown]);
 
   return (
     <>

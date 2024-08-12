@@ -44,12 +44,12 @@
 }
 
 .game .gamepause .gamepause-text {
-  width: 240px;
-  height: 120px;
+  width: 180px;
+  height: 90px;
   background: url('../over.png');
   background-repeat: np-repeat;
-  background-size: 824px 412px; /* 将图片宽度放大 */
-  background-position: 340px 0;
+  background-size: 618px 309px; /* 将图片宽度放大 */
+  background-position: 260px 0;
   cursor: pointer;
 }
 
