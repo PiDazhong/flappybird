@@ -27,10 +27,10 @@ function Game() {
     }
     intervalRef.current = setInterval(() => {
       if (skyRef.current) {
-        skyRef.current.move(16 / 1000);
+        skyRef.current.move(8 / 1000);
       }
       if (groundRef.current) {
-        groundRef.current.move(24 / 1000);
+        groundRef.current.move(16 / 1000);
       }
       if (birdRef.current) {
         birdRef.current.startSwing();
