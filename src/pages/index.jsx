@@ -25,6 +25,8 @@ function Game() {
   const [gameover, setGameover] = useState(false);
   const [gamepause, setGamepause] = useState(true);
 
+  const [scroe, setScore] = useState(0);
+
   const startGame = () => {
     if (gameover) {
       return;
@@ -62,6 +64,11 @@ function Game() {
           if (pair.isHit(birdRef.current)) {
             endGame();
             return;
+          }
+
+          // 检测小鸟是否过了柱子
+          if (pair.isPassed(birdRef.current)) {
+            setScore((score) => score + 1);
           }
         });
       }
@@ -102,6 +109,7 @@ function Game() {
     setDoms();
     setGameover(false);
     setGamepause(true);
+    setScore(0);
   };
 
   const endGame = () => {
@@ -213,6 +221,7 @@ function Game() {
             <div className="gamepause-text" onClick={() => startGame()}></div>
           </div>
         )}
+        <div className="score">scroe {scroe}</div>
         <div className="sky"></div>
         <div className="bird swing3"></div>
         <div className="ground"></div>

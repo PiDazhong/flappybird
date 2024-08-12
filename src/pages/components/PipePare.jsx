@@ -41,6 +41,9 @@ class PipePare {
     // 游戏面板新增这两个水管dom
     gameDom.appendChild(upDom);
     gameDom.appendChild(downDom);
+
+    // 添加一个标记，表示小鸟是否已经通过了这对水管
+    this.hasPassed = false;
   }
 
   onMove() {
@@ -65,6 +68,24 @@ class PipePare {
       (this.upPipe.top + this.upPipe.height > bird.top ||
         this.downPipe.top < bird.top + bird.height)
     );
+  }
+
+  // 检测小鸟是否通过了水管对
+  isPassed(bird) {
+    if (this.hasPassed) {
+      return false; // 如果已经通过过了，就不再触发
+    }
+
+    const birdLeftEdge = bird.left;
+    const pipeRightEdge = this.upPipe.left + this.upPipe.width;
+
+    // 当小鸟的左边缘超过水管的右边缘时，表示通过了水管
+    if (birdLeftEdge > pipeRightEdge) {
+      this.hasPassed = true; // 标记为已通过
+      return true;
+    }
+
+    return false;
   }
 }
 
